@@ -21,7 +21,7 @@ func main() {
 		Text string `json:"text"`
 	}{Text: "he is a good boy very good boy he loves music and loves to be done not learning to go out"}
 	textjson, err := json.Marshal(text)
-	req, err := http.NewRequest("POST", "http://localhost:8080/text", bytes.NewBuffer(textjson))
+	req, err := http.NewRequest("POST", "http://localhost:3000/text", bytes.NewBuffer(textjson))
 	if err != nil {
 		fmt.Printf("%s", err)
 		return
