@@ -48,12 +48,14 @@ func main() {
 		}
 		defer resp.Body.Close()
 		body, err := ioutil.ReadAll(resp.Body)
-		p := make(WordCountList, 10)
+		p := make(WordCountList, 0)
 		err1 := json.Unmarshal(body, &p)
+		count := len(p)
+		fmt.Println(count)
 		if err1 != nil {
 
 		}
-		utils.RespondJSON(writer, http.StatusOK, p[0:11])
+		utils.RespondJSON(writer, http.StatusOK, p[0:count])
 
 	})
 	http.ListenAndServe(":8080", router)
